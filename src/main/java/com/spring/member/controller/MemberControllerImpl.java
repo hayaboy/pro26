@@ -54,7 +54,7 @@ public class MemberControllerImpl    implements MemberController{
 	}
 
 	
-	
+	@RequestMapping(value = "/member/memberForm.do", method = RequestMethod.GET)
 	public ModelAndView memberForm(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		String viewName=getViewName(request);
 		System.out.println(viewName);
@@ -65,7 +65,7 @@ public class MemberControllerImpl    implements MemberController{
 	
 	
 	
-	
+	@RequestMapping(value = "/member/addMember.do", method = RequestMethod.POST)
 	public ModelAndView addMember(@ModelAttribute("member") MemberVO member, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		System.out.println("회원 추가 코드 동작");
 		
@@ -94,7 +94,8 @@ public class MemberControllerImpl    implements MemberController{
 	
 	
 	
-	
+
+	@RequestMapping(value = "/member/delMember.do", method = RequestMethod.GET)
 	public ModelAndView delMember(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		System.out.println("회원 삭제 코드 동작");
 		String id=request.getParameter("id");
@@ -165,6 +166,7 @@ public class MemberControllerImpl    implements MemberController{
 
 
 	@Override
+	@RequestMapping(value = "/member/modMemberForm.do", method = RequestMethod.GET)
 	public ModelAndView modMemberForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName=getViewName(request);
 		System.out.println(viewName);
@@ -174,8 +176,9 @@ public class MemberControllerImpl    implements MemberController{
 
 
 
-
+	
 	@Override
+	@RequestMapping(value = "/member/modMember.do", method = RequestMethod.POST)
 	public ModelAndView updateMember(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("회원 수정 코드 실행");
 		String id=request.getParameter("id");
@@ -198,6 +201,7 @@ public class MemberControllerImpl    implements MemberController{
 
 
 	@Override
+	@RequestMapping(value = "/member/member.do", method = RequestMethod.GET)
 	public ModelAndView search(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String action = request.getParameter("action");
 		System.out.println("액션 값" + action);
